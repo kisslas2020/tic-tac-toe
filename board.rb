@@ -27,7 +27,3 @@ class Board
 
   
 end
-
-b = Board.new
-Board.clear
-b.print_board
