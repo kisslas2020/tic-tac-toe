@@ -18,7 +18,10 @@ class Board
       print " \u2015" * (size * 2)
       puts
     }
-    
+  end
+
+  def full?
+    board.none? {|row| row.include?(".")}
   end
   
   def self.clear
