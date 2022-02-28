@@ -12,6 +12,7 @@ class Game
   end
 
   def play
+    board.print_board
     actual = playerB
     until ended?
       actual = actual == playerA ? playerB : playerA
@@ -64,13 +65,18 @@ class Game
 
 end
 
-b = Board.new
-Board.clear
-print "What is the name of the first player? "
-pA = Player.new(gets.chomp)
-puts
-print "What is the name of the second player? "
-pB = Player.new(gets.chomp)
-puts
-g = Game.new(b, pA, pB)
-g.play
+while true
+  b = Board.new
+  Board.clear
+  print "What is the name of the first player? "
+  pA = Player.new(gets.chomp)
+  puts
+  print "What is the name of the second player? "
+  pB = Player.new(gets.chomp)
+  puts
+  g = Game.new(b, pA, pB)
+  g.play
+  print "Another game? y/n: "
+  ans = gets.chomp
+  break if ans[0].downcase == 'n'
+end
